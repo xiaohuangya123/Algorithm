@@ -39,6 +39,14 @@ public class AlgorithmTest {
         Algorithm.bubbleSort(arr);
     }
 
+    @Test
+    public void fibonacciSequence(){
+        Long val = Algorithm.fibonacciSequence(50);
+        System.out.println(val);
+    }
+
+
+
     //打印数组
     private void printArray(int[] arr){
         StringBuffer sb = new StringBuffer();

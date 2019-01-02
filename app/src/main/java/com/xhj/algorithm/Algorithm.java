@@ -1,5 +1,10 @@
 package com.xhj.algorithm;
 
+import android.provider.Telephony;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Author: Created by XHJ on 2019/1/2.
  * 种一棵树最好的时间是十年前，其次是现在。
@@ -85,6 +90,25 @@ public class Algorithm {
         }
 
         return arr;
+    }
+
+
+    /**
+     * 斐波那契序列
+     * 斐波那契序列优化后的递归实现。
+     * @param n
+     * @return
+     */
+    static Map<Integer, Long> mMap = new HashMap<>();
+    public static Long fibonacciSequence(int n){
+        if(n<=2){
+            return 1L;
+        }else {
+            if(!mMap.containsKey(n)){
+                mMap.put(n,fibonacciSequence(n-1) + fibonacciSequence(n-2));
+            }
+            return mMap.get(n);
+        }
     }
 
 
