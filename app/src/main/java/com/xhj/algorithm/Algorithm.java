@@ -1,7 +1,5 @@
 package com.xhj.algorithm;
 
-import android.provider.Telephony;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -92,6 +90,50 @@ public class Algorithm {
         return arr;
     }
 
+    /**
+     * 快速排序
+     * 快速排序使用分治法来把一个串（list）分为两个子串（sub-lists）。具体算法描述如下：
+     * 从数列中挑出一个元素，称为 “基准”（pivot）；
+     * 重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区退出之后，该基准就处于数列的中间位置。这个称为分区（partition）操作；
+     * 递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序。
+     * @param arr
+     * @param leftIndex
+     * @param rightIndex
+     * @return
+     */
+    public static int[] quickSort(int[] arr, int leftIndex, int rightIndex){
+        if(leftIndex>rightIndex){
+            return null;
+        }
+        int key = arr[leftIndex];//默认基准是数组左边第一个元素
+        int i = leftIndex, j = rightIndex;
+        while (i<j){
+            while (i<j && arr[j]>key){//从右边开始找到第一个小于key（基准）的元素的位置
+                j--;
+            }
+            while (i<j && arr[i]<=key){//从左边开始找到第一个大于key（基准）的元素的位置
+                i++;
+            }
+            if(i<j){//交换左边大于key的元素与右边小于key的元素位置
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        //交换基准key与arr[i]的值，此时key左边的元素均小于等于key，右边的军大于key
+        //第一次排序完成，然后采用递归的方式分别排序左侧序列和右侧序列
+        int point = arr[leftIndex];
+        arr[leftIndex] = arr[i];
+        arr[i] = point;
+
+        quickSort(arr, leftIndex, i-1);
+        quickSort(arr, i+1, rightIndex);
+        return arr;
+    }
+
+
+
+
 
     /**
      * 斐波那契序列
@@ -110,35 +152,5 @@ public class Algorithm {
             return mMap.get(n);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

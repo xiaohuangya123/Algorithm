@@ -16,7 +16,8 @@ public class AlgorithmTest {
 
     @Before
     public void setUp() throws Exception {
-        arr = new int[]{2,1,4,6,3,2,9};
+        arr = new int[]{2,1,4,6,3,2,9,0,8,7,5};
+        printArray(arr);
     }
 
     @After
@@ -37,6 +38,11 @@ public class AlgorithmTest {
     @Test
     public void bubbleSort(){
         Algorithm.bubbleSort(arr);
+    }
+
+    @Test
+    public void quickSort(){
+        Algorithm.quickSort(arr,0,arr.length-1);
     }
 
     @Test
