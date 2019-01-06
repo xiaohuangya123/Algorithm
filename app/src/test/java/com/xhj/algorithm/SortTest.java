@@ -4,13 +4,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Author: Created by XHJ on 2019/1/2.
  * 种一棵树最好的时间是十年前，其次是现在。
  */
-public class AlgorithmTest {
+public class SortTest {
 
     private int[]arr;
 
@@ -27,27 +25,27 @@ public class AlgorithmTest {
 
     @Test
     public void insetSort() {
-        Algorithm.insetSort(arr);
+        Sort.insetSort(arr);
     }
 
     @Test
     public void selectSort(){
-        Algorithm.selectSort(arr);
+        Sort.selectSort(arr);
     }
 
     @Test
     public void bubbleSort(){
-        Algorithm.bubbleSort(arr);
+        Sort.bubbleSort(arr);
     }
 
     @Test
     public void quickSort(){
-        Algorithm.quickSort(arr,0,arr.length-1);
+        Sort.quickSort(arr,0,arr.length-1);
     }
 
     @Test
     public void fibonacciSequence(){
-        Long val = Algorithm.fibonacciSequence(50);
+        Long val = Sort.fibonacciSequence(50);
         System.out.println(val);
     }
 

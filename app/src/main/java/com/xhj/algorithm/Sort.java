@@ -7,7 +7,7 @@ import java.util.Map;
  * Author: Created by XHJ on 2019/1/2.
  * 种一棵树最好的时间是十年前，其次是现在。
  */
-public class Algorithm {
+public class Sort {
 
     /**
      * 插入排序
