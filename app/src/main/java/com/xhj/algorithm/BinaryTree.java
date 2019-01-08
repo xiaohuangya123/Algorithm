@@ -1,5 +1,7 @@
 package com.xhj.algorithm;
 
+import android.database.sqlite.SQLiteBindOrColumnIndexOutOfRangeException;
+
 import java.util.LinkedList;
 import java.util.Stack;
 
@@ -151,6 +153,40 @@ public class BinaryTree {
         }
     }
 
+    /**
+     * 栈实现
+     * 后序遍历
+     * 对于一个节点而言，要实现访问顺序为左子树->右子树->根节点，可以利用先进后出栈，
+     * 在节点部位空的前提下，依次将根节点，右子树，左子树压栈。
+     * 故我们需要按照根节点->右子树->左子树的顺序遍历树，
+     * 而我们紫荆知道先序遍历是根节点->左子树->右子树，
+     * 故只需将先序遍历的左右调换并把访问方式打印改为压入另一个栈即可，
+     * 最后一起打印栈中的元素。
+     * @param node
+     */
+    public void postOrderTraversalByStack(Node node){
+        Stack<Node> nodeStack1 = new Stack<>();
+        Stack<Node> nodeStack2 = new Stack<>();
+
+        while (node != null || !nodeStack1.isEmpty()){
+
+            while (node != null){
+                nodeStack1.push(node);
+                nodeStack2.push(node);
+                node = node.rightNode;
+            }
+
+            if(!nodeStack1.isEmpty()) {
+                node = nodeStack1.pop();
+                node = node.leftNode;
+            }
+        }
+
+        while (!nodeStack2.isEmpty()){
+            node = nodeStack2.pop();
+            System.out.print(node.data + " ");
+        }
+    }
 
 
 }

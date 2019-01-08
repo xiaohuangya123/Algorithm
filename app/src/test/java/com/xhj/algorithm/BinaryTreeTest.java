@@ -31,27 +31,32 @@ public class BinaryTreeTest {
     }
 
     @Test
-    public void preOrderTravserval() {
+    public void preOrderTravsersal() {
         mTree.preOrderTraversal(rootNode);
     }
 
     @Test
-    public void inOrderTravserval() {
+    public void inOrderTravsersal() {
         mTree.inOrderTraversal(rootNode);
     }
 
     @Test
-    public void postOrderTravserval() {
+    public void postOrderTravsersal() {
         mTree.postOrderTraversal(rootNode);
     }
 
     @Test
-    public void preOrderTravservalByStack() {
+    public void preOrderTravsersalByStack() {
         mTree.preOrderTraversalByStack(rootNode);
     }
 
     @Test
-    public void inOrderTravservalByStack() {
+    public void inOrderTravsersalByStack() {
         mTree.inOrderTraversalByStack(rootNode);
+    }
+
+    @Test
+    public void postOrderTraversalByStack(){
+        mTree.postOrderTraversalByStack(rootNode);
     }
 }
