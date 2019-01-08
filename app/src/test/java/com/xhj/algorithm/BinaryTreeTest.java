@@ -59,4 +59,40 @@ public class BinaryTreeTest {
     public void postOrderTraversalByStack(){
         mTree.postOrderTraversalByStack(rootNode);
     }
+
+    @Test
+    public void postOrderTraversalByStack2(){
+        mTree.postOrderTraversalByStack2(rootNode);
+    }
+
+    @Test
+    public void levelOrderTraversal(){
+        mTree.levelOrderTraversal(rootNode);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

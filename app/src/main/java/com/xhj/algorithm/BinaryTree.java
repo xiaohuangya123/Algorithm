@@ -1,8 +1,7 @@
 package com.xhj.algorithm;
 
-import android.database.sqlite.SQLiteBindOrColumnIndexOutOfRangeException;
-
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -185,6 +184,67 @@ public class BinaryTree {
         while (!nodeStack2.isEmpty()){
             node = nodeStack2.pop();
             System.out.print(node.data + " ");
+        }
+    }
+
+    /**
+     * 栈实现
+     * 后序遍历
+     *
+     * @param node
+     */
+    public void postOrderTraversalByStack2(Node node){
+
+        if(node == null){
+            return;
+        }
+        Node preNode = null, currNode = null;
+        Stack<Node> nodeStack = new Stack<>();
+        nodeStack.push(node);
+
+        while (!nodeStack.isEmpty()){
+            currNode = nodeStack.peek();
+            if(preNode == null || preNode.leftNode == currNode || preNode.rightNode == currNode){
+                if(currNode.leftNode != null){
+                    nodeStack.push(currNode.leftNode);
+                }else if(currNode.rightNode !=null){
+                    nodeStack.push(currNode.rightNode);
+                }
+            }else if(currNode.leftNode == preNode){
+                if(currNode.rightNode != null){
+                    nodeStack.push(currNode.rightNode);
+                }
+            }else {
+                System.out.print(currNode.data + " ");
+                nodeStack.pop();
+            }
+            preNode = currNode;
+        }
+    }
+
+    /**
+     * 队列实现
+     * 层序遍历
+     * 遍历从根节点开始，首先将根节点入队，然后执行循环，
+     * 节点出队，访问该节点，将左子树入队，将右子树入队，
+     * 一直到队列为空为止，循环结束，程序结束。
+     * @param node
+     */
+    public void levelOrderTraversal(Node node){
+        if(node == null){
+            return;
+        }
+        Queue<Node> nodeQueue = new LinkedList<>();
+        nodeQueue.offer(node);
+        while (!nodeQueue.isEmpty()){
+            node = nodeQueue.poll();
+            System.out.print(node.data + " ");
+            if(node.leftNode != null){
+                nodeQueue.offer(node.leftNode);
+            }
+            if(node.rightNode != null){
+                nodeQueue.offer(node.rightNode);
+            }
         }
     }
 
