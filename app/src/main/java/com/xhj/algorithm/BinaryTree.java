@@ -1,6 +1,7 @@
 package com.xhj.algorithm;
 
 import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  * Author: Created by XHJ on 2019/1/5.
@@ -56,6 +57,7 @@ public class BinaryTree {
     }
 
     /**
+     * 递归实现
      * 先序遍历二叉树
      * @param rootNode
      */
@@ -70,6 +72,7 @@ public class BinaryTree {
     }
 
     /**
+     * 递归实现
      * 中序遍历二叉树
      * @param rootNode
      */
@@ -84,6 +87,7 @@ public class BinaryTree {
     }
 
     /**
+     * 递归实现
      * 后序遍历二叉树
      * @param rootNode
      */
@@ -97,6 +101,80 @@ public class BinaryTree {
 
     }
 
+    /**
+     * 栈实现
+     * 先序遍历
+     * 遇到一个节点，访问它；
+     * 然后就把它压栈，并去遍历它的左子树；
+     * 当左子树遍历结束后，按其右子树指针再去中序遍历该结点的右子树。
+     * @param node
+     */
+    public void preOrderTraversalByStack(Node node){
+        Stack<Node> nodeStack = new Stack<>();
+        while (node != null || !nodeStack.isEmpty()){
+
+            while(node != null){
+                System.out.print(node.data+" ");
+                nodeStack.push(node);
+                node = node.leftNode;
+            }
+
+            if (!nodeStack.isEmpty()){
+                node = nodeStack.pop();
+                node = node.rightNode;
+            }
+        }
+    }
+
+    /**
+     * 栈实现
+     * 中序遍历
+     * 遇到一个节点，就把它压栈，并去遍历它的左子树；
+     * 当左子树遍历结束后，从栈顶弹出这个节点并访问它；
+     * 然后按其右子树指针再去中序遍历该结点的右子树。
+     * @param node
+     */
+    public void inOrderTraversalByStack(Node node){
+        Stack<Node> nodeStack = new Stack<>();
+        while (node != null || !nodeStack.isEmpty()){
+
+            while(node != null){
+                nodeStack.push(node);
+                node = node.leftNode;
+            }
+
+            if (!nodeStack.isEmpty()){
+                node = nodeStack.pop();
+                System.out.print(node.data+" ");
+                node = node.rightNode;
+            }
+        }
+    }
+
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

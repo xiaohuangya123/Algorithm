@@ -44,4 +44,14 @@ public class BinaryTreeTest {
     public void postOrderTravserval() {
         mTree.postOrderTraversal(rootNode);
     }
+
+    @Test
+    public void preOrderTravservalByStack() {
+        mTree.preOrderTraversalByStack(rootNode);
+    }
+
+    @Test
+    public void inOrderTravservalByStack() {
+        mTree.inOrderTraversalByStack(rootNode);
+    }
 }
