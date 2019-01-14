@@ -32,4 +32,11 @@ public class SearchTest {
         int res = Search.binarySearchByRecursion(arr,4, 0, arr.length-1);
         System.out.println(res + "");
     }
+
+    @Test
+    public void binarySearchFirstLocation(){
+        int[] arr1 = {1,2,5,5,5,5,7,8,9};
+        int res = Search.binarySearchFirstLocation(arr1,5);
+        System.out.println(res + "");
+    }
 }

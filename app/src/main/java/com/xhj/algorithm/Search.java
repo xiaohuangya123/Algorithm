@@ -58,6 +58,40 @@ public class Search {
         }
     }
 
+    /**
+     * 二分查找 查找第一次出现的位置
+     * 被查找的数组需要是从小到大排好序,可以重复。
+     * @param arr 由小到到排序的数组，可以重复
+     * @param key 需要查找的值
+     * @return 如果找到则返回对应的位置，未找到返回-1
+     */
+    public static int binarySearchFirstLocation(int[] arr, int key){
+        int left = 0;
+        int right = arr.length-1;
+
+        if(key>arr[right] || key<arr[left]){
+            return -1;
+        }
+
+        while(left<=right){
+            int mid = (left+right)/2;
+            if(key == arr[mid]){
+                while (mid>=0){
+                    if(key != arr[mid]){
+                        break;
+                    }
+                    mid--;
+                }
+                return mid+1;
+            }else if(key>arr[mid]){
+                left = mid+1;
+            }else {
+                right = mid-1;
+            }
+        }
+        return -1;
+    }
+
 
 
 }
