@@ -11,8 +11,8 @@ public class Search {
     /**
      * 二分查找
      * 被查找的数组需要是从小到大排好序且没有重复。
-     * @param arr
-     * @param key
+     * @param arr 由小到到排序的数组无重复
+     * @param key 需要查找的值
      * @return 如果找到则返回对应的位置，未找到返回-1
      */
     public static int binarySearch(int[] arr, int key){
@@ -35,6 +35,29 @@ public class Search {
         }
         return -1;
     }
+
+    /**
+     * 二分查找 递归实现
+     * @param arr 由小到到排序的数组无重复
+     * @param key 需要查找的值
+     * @param leftIndex 数组第一个元素下标
+     * @param rightIndex 数组最后一个元素下标
+     * @return 如果找到则返回对应的位置，未找到返回-1
+     */
+    public static int binarySearchByRecursion(int[] arr, int key, int leftIndex, int rightIndex){
+        if(leftIndex>rightIndex || key>arr[rightIndex] || key<arr[leftIndex]){
+            return -1;
+        }
+        int mid = (leftIndex + rightIndex)/2;
+        if(key > arr[mid]){
+            return binarySearchByRecursion(arr, key, mid+1, rightIndex);
+        }else if(key < arr[mid]){
+            return binarySearchByRecursion(arr, key, leftIndex, mid-1);
+        }else {
+            return mid;
+        }
+    }
+
 
 
 }
