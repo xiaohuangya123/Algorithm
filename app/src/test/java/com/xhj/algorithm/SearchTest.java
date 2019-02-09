@@ -39,4 +39,10 @@ public class SearchTest {
         int res = Search.binarySearchFirstLocation(arr1,5);
         System.out.println(res + "");
     }
+
+    @Test
+    public void insertValueSearch() {
+        int res = Search.insertValueSearch(arr,4);
+        System.out.println(res + "");
+    }
 }
